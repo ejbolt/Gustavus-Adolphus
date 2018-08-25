@@ -90,6 +90,7 @@ function getRsyncSource () {
 	echo "${RSYNCSOURCE}"
 }
 
+
 function getBandwidth () {
 	local BW
 	local DEF_BW=0
