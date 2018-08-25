@@ -1,35 +1,38 @@
+# Linux Mirror Deployment Script
+
 Deployment tool that was spawned after my previous project (https://github.com/ejbolt/LinuxMirrorScripts)
 
-When creating Linux mirrors, some have certain rules
-Debian and several of its derivatives:
+## When creating Linux mirrors, some have certain rules
+### Debian and several of its derivatives:
   use ftpsync: an official collection of scripts that allow you to mirror some or all of the Debian archive;
     I have tested it and it also works with Kali and Raspbian, however I haven't found any Ubuntu mirrors that it works with
     
-CentOS
+### CentOS
   use an rsync script (base script found here: https://wiki.centos.org/HowTos/CreateLocalMirror)
 
-Ubuntu
+### Ubuntu
   use an rsync script (base script found here: https://wiki.ubuntu.com/Mirrors/Scripts)
   
 After writing my previous scripts, there were a lot of similaries seen in the rsync commands between CentOS and Ubuntu, and many defaults in ftpsync that worked very well when added to my custom scripts.
 
 So I decided to write a dialog menu script that would automate deploying the mentioned Linux distros.
 
-What this tool does:
-
-  creates a user for maintaining the mirrors
-  sets up a directory for all distros
-  downloads ftpsync if you selected a distro that uses it
-  generates configs for both my custom scripts, and for ftpsync
-  changes all affected and appropriate directories to belong to the mirror user
-  allows the user to change variables such as default mirror directory, mirror user username, and other config variables as appropriate
-  
-What this tool does NOT do, but plan for it to:
-  Install needed dependencies for whatever distro it is running on
-  allow for advanced variable customization for ftpsync-related distros
-  support Fedora (requires I read into their mirroring tool, that's on the current todo list
-  detect when running as root and change any sudo commands as appropriate
-
+#### What this tool does:
+---
+- creates a user for maintaining the mirrors
+- sets up a directory for all distros
+- downloads ftpsync if you selected a distro that uses it
+- generates configs for both my custom scripts, and for ftpsync
+- changes all affected and appropriate directories to belong to the mirror user
+- allows the user to change variables such as default mirror directory, mirror user username, and other config variables as appropriate
+--- 
+#### What this tool does NOT do, but plan for it to:
+---
+- Install needed dependencies for whatever distro it is running on
+- allow for advanced variable customization for ftpsync-related distros
+- support Fedora (requires I read into their mirroring tool, that's on the current todo list
+- detect when running as root and change any sudo commands as appropriate
+---
 BEFORE USING THIS TOOL YOU SHOULD LOOK INTO HOW FTPSYNC WORKS AND AT MY CUSTOM SCRIPTS
 You can look at the 'generic.sh' script in my other repo listed above.  It's the template for the custom scripts.
 
