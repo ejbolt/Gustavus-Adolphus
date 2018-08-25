@@ -2,8 +2,8 @@ function installFtpsync () {
 	local USERPATH
 	USERPATH=$1
 	sudo git clone https://salsa.debian.org/mirror-team/archvsync.git/ "/home/${MIRRORUSER}/archvsync"
-	#sudo cp -r "/home/${MIRRORUSER}/archvsync/bin" "/home/${MIRRORUSER}/."
-	#sudo cp -r "/home/${MIRRORUSER}/archvsync/etc" "/home/${MIRRORUSER}/."	
+	sudo cp -r "/home/${MIRRORUSER}/archvsync/bin" "/home/${MIRRORUSER}/."
+	sudo cp -r "/home/${MIRRORUSER}/archvsync/etc" "/home/${MIRRORUSER}/."	
 }
 
 function getArchIncExc () {
@@ -105,7 +105,7 @@ function genFtpSyncConfig () {
 	LOCKTIMEOUT=$( getLockTimeout "${DISTRO}" )
 
 	CONFIGFILE="ftpsync-${DISTRO}.conf"
-	CONFIGPATH="${USERPATH}/archvsync/etc/${CONFIGFILE}"
+	CONFIGPATH="${USERPATH}/etc/${CONFIGFILE}"
 	sudo touch "${CONFIGPATH}"
 	{
 		echo "########################################################################"
