@@ -54,7 +54,7 @@ function getDistro () {
 	local CDIST
 	while true
 	do
-		CDIST=$(whiptail --backtitle "${BACKTITLE}" --title "Set Distro name" --nocancel --inputbox "Enter the name of the Linux Distribution" \
+		CDIST=$(whiptail --backtitle "${BACKTITLE}" --title "Set Distro name" --nocancel --inputbox "Enter the name of the Linux Distribution for custom selection" \
 					${LINES} ${COLUMNS} "${CDIST}" 3>&1 1>&2 2>&3)
 		if [ -z "${CDIST}" ]
 		then
@@ -83,8 +83,9 @@ function createDistroDirs () {
 }
 
 function getRsyncSource () {
-	local RSYNCSOURCE
-	RSYNCSOURCE=$( whiptail --backtitle "${BACKTITLE}" --title "Set source url to rsync from" \
+	local RSYNCSOURCE DISTRO
+	DISTRO=$1
+	RSYNCSOURCE=$( whiptail --backtitle "Distro = ${DISTRO}" --title "Set source url to rsync from" \
 					--inputbox "Enter source rsync URL (either in the form rsync://<url>/<path> or <url>::<path>)" \
 					${LINES} ${COLUMNS} 3>&1 1>&2 2>&3 )
 	echo "${RSYNCSOURCE}"
@@ -92,21 +93,23 @@ function getRsyncSource () {
 
 
 function getBandwidth () {
-	local BW
+	local BW DISTRO
 	local DEF_BW=0
-	BW=$( whiptail --backtitle "${BACKTITLE}" --title "Set Rsync Bandwidth Limit" \
+	DISTRO=$1
+	BW=$( whiptail --backtitle "Distro = ${DISTRO}" --title "Set Rsync Bandwidth Limit" \
 			--inputbox "Enter BW limit (KB)" ${LINES} ${COLUMNS} ${DEF_BW} 3>&1 1>&2 2>&3 )
 	echo "${BW}"
 }
 
 function getRsyncExtras () {
-	local STAGE MSG RSYNC_DEFAULTS EXTRAS=""
+	local STAGE MSG RSYNC_DEFAULTS DISTRO EXTRAS=""
 	STAGE=$1
 	RSYNC_DEFAULTS=$2
+	DISTRO=$3
 
 	MSG="Set Stage ${STAGE} Extra Options\nRemember, the following options are already default:\n ${RSYNC_DEFAULTS}"
 
-	EXTRAS=$( whiptail --backtitle "${BACKTITLE}" --inputbox "${MSG}" \
+	EXTRAS=$( whiptail  --backtitle "Distro = ${DISTRO}" --inputbox "${MSG}" \
 				${LINES} ${COLUMNS} "${EXTRAS}" 3>&1 1>&2 2>&3 )
 	echo "${EXTRAS}"
 }

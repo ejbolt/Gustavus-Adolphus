@@ -15,7 +15,7 @@ function genCustomConfig () {
 	# Build out variable assignments to match what script expects,
 	# still maintain configurability
 	# source URL for rsync
-	RSYNCSOURCE=$( getRsyncSource )
+	RSYNCSOURCE=$( getRsyncSource "${DISTRO}" )
 
 	MIRRORNAME="\$(hostname -f)"
 	LOCKFILE="\"Archive-Update-in-Progress-\${MIRRORNAME}\""
@@ -25,17 +25,17 @@ function genCustomConfig () {
 	LOGFILENAME="\"\${DISTRO}-rsync-\${DAY}.log\""
 	LOGPATH="\"\${USERPATH}/log/\${DISTRO}/\${LOGFILENAME}\""
 
-	BWLIMIT=$( getBandwidth )
+	BWLIMIT=$( getBandwidth "${DISTRO}" )
 	RSYNC_BW="\"--bwlimit=\${BWLIMIT}\""
 
 	RSYNC_DEFAULTS="\"-prltvHSB8192 --safe-links --info=progress2 --chmod=D755,F644 --stats --no-human-readable --no-inc-recursive\""
 
 	STAGEONE_DEFAULTS="\"\""
-	STAGEONE_EXTRA="\"$( getRsyncExtras 1 "${RSYNC_DEFAULTS}" )\""
+	STAGEONE_EXTRA="\"$( getRsyncExtras 1 "${RSYNC_DEFAULTS}" "${DISTRO}" )\""
 	STAGEONE_OPTIONS="\"\${RSYNC_DEFAULTS} \${STAGEONE_DEFAULTS} \${STAGEONE_EXTRA}\""
 
 	STAGETWO_DEFAULTS="\"--delete --delete-after\""
-	STAGETWO_EXTRA="\"$( getRsyncExtras 2 "${RSYNC_DEFAULTS}" )\""
+	STAGETWO_EXTRA="\"$( getRsyncExtras 2 "${RSYNC_DEFAULTS}" "${DISTRO}" )\""
 	STAGETWO_OPTIONS="\"\${RSYNC_DEFAULTS} \${STAGETWO_DEFAULTS} \${STAGETWO_EXTRA}\""
 
 	# config file name and path

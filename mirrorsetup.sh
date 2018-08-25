@@ -4,15 +4,12 @@ BACKTITLE="Deploying Mirrors"
 TITLE="Choose Distros"
 MENU="Choose which distros to mirror:"
 
-
 function main () {
 
-	BINDIR=$( dirname $(readlink -f "$0"))
-	echo "BINDIR = ${BINDIR}"
-
-	cat "${BINDIR}/include-git"
-	source "${BINDIR}/include-git"
-
+	BINDIR=$( dirname $(readlink -f "$0")) 1>/dev/null
+	source "${BINDIR}/common-functions.sh" 1>/dev/null
+	source "${BINDIR}/ftpsync-functions.sh" 1>/dev/null
+	source "${BINDIR}/customscript-functions.sh" 1>/dev/null
 
 	# list of distros script covers
 	local -r DISTROS="centos debian kali raspbian ubuntu custom"
@@ -123,7 +120,7 @@ function main () {
 
 	for DIST in "${FS_INST_DISTS[@]}"
 	do
-		genFtpSyncConfig "${MIRRORDIR}" "${DIST}" "${USERPATH}"
+		genFtpSyncConfig "${MIRRORDIR}" "${DIST}" "${MIRRORUSER}" "${USERPATH}"
 	done
 
 	sudo chown -R "${MIRRORUSER}:${MIRRORUSER}" "${USERPATH}"

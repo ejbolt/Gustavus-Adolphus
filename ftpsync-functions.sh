@@ -2,21 +2,24 @@ function installFtpsync () {
 	local USERPATH
 	USERPATH=$1
 	sudo git clone https://salsa.debian.org/mirror-team/archvsync.git/ "/home/${MIRRORUSER}/archvsync"
-	sudo cp -r "/home/${MIRRORUSER}/archvsync/{bin,etc}" "/home/${MIRRORUSER}/."
+	#sudo cp -r "/home/${MIRRORUSER}/archvsync/bin" "/home/${MIRRORUSER}/."
+	#sudo cp -r "/home/${MIRRORUSER}/archvsync/etc" "/home/${MIRRORUSER}/."	
 }
 
 function getArchIncExc () {
-	local ARCH_OPT
-	ARCH_OPT=$( whiptail --title "Architecture include/exclude" --radiolist \
-			"Do you want to include or exclude certain architectures?" ${LINES} ${COLUMNS} $(( LINES -  8 )) \
+	local ARCH_OPT DISTRO
+	DISTRO=$1
+	ARCH_OPT=$( whiptail --backtitle "Distro = ${DISTRO}" --title "Architecture include/exclude" --radiolist \
+			"Do you want to include or exclude certain architectures? for distro:${DISTRO}" ${LINES} ${COLUMNS} $(( LINES -  8 )) \
 			"include" "Architectures to include" ON "exclude" "Architectures to exclude" OFF 3>&1 1>&2 2>&3 )
 
 	echo "${ARCH_OPT}"
 }
 
 function getArches () {
-	local ARCHES MSG ARCHLIST OPTS ARCH_OPT CHOICES
+	local ARCHES MSG ARCHLIST OPTS ARCH_OPT CHOICES DISTRO
 	ARCH_OPT=$1
+	DISTRO=$2
 	MSG="Select architectures to ${ARCH_OPT} (NOTE: check that the mirror you are syncing from has the ones you want; If you want to be an official mirror, you should (must) sync source as well"
 	ARCHLIST="source amd64 arm64 armel armhf hurd-i386 i386 ia64 kfreebsd-amd64 kfreebsd-i386 mips mips64 mipsel powerpc ppc64el s390 s390x sparc"
 	
@@ -28,7 +31,7 @@ function getArches () {
 	done
 
 	eval "$(resize)"
-	CHOICES=$( whiptail --title "Architectures" --checklist --separate-output \
+	CHOICES=$( whiptail --backtitle "Distro = ${DISTRO}" --title "Architectures" --checklist --separate-output \
 			"${MSG}" ${LINES} ${COLUMNS} $(( LINES -  8 )) \
 			"${OPTS[@]}" 3>&1 1>&2 2>&3 )
 
@@ -41,28 +44,31 @@ function getArches () {
 }
 
 function getUipSleep () {
-	local UIPSLEEP DEF_SLEEP
+	local UIPSLEEP DEF_SLEEP DISTRO
+	DISTRO=$1
 	DEF_SLEEP=900
-	UIPSLEEP=$( whiptail --backtitle "${BACKTITLE}" --title "Set UIPSLEEP" \
+	UIPSLEEP=$( whiptail --backtitle "Distro = ${DISTRO}" --title "Set UIPSLEEP" \
 					--inputbox "Enter value for UIPSLEEP (uses sleep command, value is in seconds... EX: 900 = 15 minutes" \
 					${LINES} ${COLUMNS} ${DEF_SLEEP} 3>&1 1>&2 2>&3 )
 	echo "${UIPSLEEP}"
 }
 
 function getUipRetries () {
-	local UIPRETRIES DEF_RETRIES
+	local UIPRETRIES DEF_RETRIES DISTRO
+	DISTRO=$1
 	DEF_RETRIES=10
-	UIPRETRIES=$( whiptail --backtitle "${BACKTITLE}" --title "Set UIPRETRIES" \
+	UIPRETRIES=$( whiptail  --backtitle "Distro = ${DISTRO}" --title "Set UIPRETRIES" \
 					--inputbox "Enter number of times to retry syncing if first attempt fails" \
 					${LINES} ${COLUMNS} ${DEF_RETRIES} 3>&1 1>&2 2>&3 )
 	echo "${UIPSLEEP}"
 }
 
 function getLockTimeout () {
-	local LOCKTIMEOUT DEF_LOCKTIMEOUT
+	local LOCKTIMEOUT DEF_LOCKTIMEOUT DISTRO
+	DISTRO=$1
 	DEF_LOCKTIMEOUT=3600
-	LOCKTIMEOUT=$( whiptail --backtitle "${BACKTITLE}" --title "Set LOCKTIMEOUT" \
-					--inputbox "Enter time for how long your lock file will remain in place.  This prevents a sync from starting while one is already in progress." \
+	LOCKTIMEOUT=$( whiptail --backtitle "Distro = ${DISTRO}" --title "Set LOCKTIMEOUT" \
+					--inputbox "Enter time for how long your lock file will remain in place  for distro:${DISTRO}.  This prevents a sync from starting while one is already in progress." \
 					${LINES} ${COLUMNS} ${DEF_LOCKTIMEOUT} 3>&1 1>&2 2>&3 )
 	echo "${LOCKTIMEOUT}"
 }
@@ -84,22 +90,22 @@ function genFtpSyncConfig () {
 	# still maintain configurability
 	MIRRORNAME="\$(hostname -f)"
 
-	RSYNC_HOST=$( getRsyncSource )
+	RSYNC_HOST=$( getRsyncSource "${DISTRO}" )
 
 	LOGDIR="${USERPATH}/log/${DISTRO}"
 
-	RSYNC_BW=$( getBandwidth )
+	RSYNC_BW=$( getBandwidth "${DISTRO}" )
 
-	ARCH_OPT=$( getArchIncExc )
-	ARCHES=$( getArches "${ARCH_OPT}" )
+	ARCH_OPT=$( getArchIncExc "${DISTRO}" )
+	ARCHES=$( getArches "${ARCH_OPT}" "${DISTRO}" )
 
-	UIPSLEEP=$( getUipSleep )
-	UIPRETRIES=$( getUipRetries )
+	UIPSLEEP=$( getUipSleep "${DISTRO}" )
+	UIPRETRIES=$( getUipRetries "${DISTRO}" )
 
-	LOCKTIMEOUT=$( getLockTimeout )
+	LOCKTIMEOUT=$( getLockTimeout "${DISTRO}" )
 
 	CONFIGFILE="ftpsync-${DISTRO}.conf"
-	CONFIGPATH="${USERPATH}/etc/${CONFIGFILE}"
+	CONFIGPATH="${USERPATH}/archvsync/etc/${CONFIGFILE}"
 	sudo touch "${CONFIGPATH}"
 	{
 		echo "########################################################################"
