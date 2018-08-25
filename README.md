@@ -42,6 +42,6 @@ All you need to do is git clone this repo, and run the script as a user with sud
 
 afterwards, you will have directories in the mirror user's home directory named after each selected distro, and if you selected distros that use ftpsync, a directory named 'archvsync', and a 'bin' and 'etc' directory.  Due to how ftpsync looks for its config files, it's easiest to copy the bin and etc folders out of archvsync (the ftpsync git repo name) and into the home folder.
 
-You can run the scripts manually, OR place them in your crontab.  They should run fine during the first initial sync
+You can run the scripts manually, OR place them in your crontab (ftpsync has an ftpsync-cron wrapper, you should use that).  They should run fine during the first initial sync, but it wouldn't hurt to run them manually, or set your crontab to run accordingly.
 
 All feedback is welcome.  There are bound to be issues.  I am constantly testing them on my own mirror server to find any hiccups.
