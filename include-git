@@ -1,3 +1,3 @@
-. "${BINDIR}/common-functions.sh"
-. "${BINDIR}/ftpsync-functions.sh"
-. "${BINDIR}/customscript-functions.sh"
+source "${BINDIR}/common-functions.sh"
+source "${BINDIR}/ftpsync-functions.sh"
+source "${BINDIR}/customscript-functions.sh"

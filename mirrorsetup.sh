@@ -4,13 +4,16 @@ BACKTITLE="Deploying Mirrors"
 TITLE="Choose Distros"
 MENU="Choose which distros to mirror:"
 
-BINDIR=$( dirname $(readlink -f "$0")); . "${BINDIR}/include-git"
-
-#function genFtpSyncConfig () {
-#	#sudo touch "/home/${MIRRORUSER}/etc/ftpsync-${DISTRONAME}".conf
-#}
 
 function main () {
+
+	BINDIR=$( dirname $(readlink -f "$0"))
+	echo "BINDIR = ${BINDIR}"
+
+	cat "${BINDIR}/include-git"
+	source "${BINDIR}/include-git"
+
+
 	# list of distros script covers
 	local -r DISTROS="centos debian kali raspbian ubuntu custom"
 	# Options for dialog menu list
