@@ -1,3 +1,0 @@
-source "${BINDIR}/common-functions.sh"
-source "${BINDIR}/ftpsync-functions.sh"
-source "${BINDIR}/customscript-functions.sh"
