@@ -33,7 +33,7 @@ So I decided to write a dialog menu script that would automate deploying the men
 - support Fedora (requires I read into their mirroring tool, that's on the current todo list
 - detect when running as root and change any sudo commands as appropriate
 ---
-BEFORE USING THIS TOOL YOU SHOULD LOOK INTO HOW FTPSYNC WORKS AND AT MY CUSTOM SCRIPTS
+BEFORE USING THIS TOOL YOU SHOULD LOOK INTO HOW FTPSYNC WORKS AND AT MY CUSTOM SCRIPTS  
 You can look at the 'generic.sh' script in my other repo listed above.  It's the template for the custom scripts.
 
 ftpsync requires that you choose which architectures to mirror, look into what architectures you want, and pick an appropriate rsync mirror to sync from that supports all of the desired architectures.
