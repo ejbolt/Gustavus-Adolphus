@@ -117,7 +117,7 @@ function genFtpSyncConfig () {
 		echo "########################################################################"
 		echo ""
 		echo -e "MIRRORNAME=${MIRRORNAME}"
-		echo -e "TO=\"${BASEDIR}\""
+		echo -e "TO=\"${BASEDIR}/${DISTRO}\""
 		echo -e "# MAILTO=\"$USERNAME\""
 		echo "# HUB=false"
 		echo ""
