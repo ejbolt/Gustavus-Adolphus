@@ -15,7 +15,9 @@ function genCustomConfig () {
 	# Build out variable assignments to match what script expects,
 	# still maintain configurability
 	# source URL for rsync
-	RSYNCSOURCE=$( getRsyncSource "${DISTRO}" )
+	RSYNCURL=$( getRsyncSource "${DISTRO}" )
+	RSYNCPATH="${DISTRO}"
+	RSYNCSOURCE="${RSYNCURL}/${RSYNCPATH}"
 
 	MIRRORNAME="\$(hostname -f)"
 	LOCKFILE="\"Archive-Update-in-Progress-\${MIRRORNAME}\""

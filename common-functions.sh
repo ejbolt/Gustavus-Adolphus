@@ -86,7 +86,7 @@ function getRsyncSource () {
 	local RSYNCSOURCE DISTRO
 	DISTRO=$1
 	RSYNCSOURCE=$( whiptail --backtitle "Distro = ${DISTRO}" --title "Set source url to rsync from" \
-					--inputbox "Enter source rsync URL (either in the form rsync://<url>/<path> or <url>::<path>)" \
+					--inputbox "Enter source rsync URL (either in the form rsync://<url>/ or <url>::, path is appended based on distro, so type accordingly :) )" \
 					${LINES} ${COLUMNS} 3>&1 1>&2 2>&3 )
 	echo "${RSYNCSOURCE}"
 }
