@@ -62,7 +62,7 @@ function genCustomConfig () {
 		echo "# rsync host URL"
 		echo -e "RSYNCSOURCE=\"${RSYNCSOURCE}\""
 		echo "# Path to mirror directory, example: /var/www/html/${DISTRO}"
-		echo -e "BASEDIR=\"${BASEDIR}\""
+		echo -e "BASEDIR=\"${BASEDIR}/${DISTRO}\""
 		echo "# mirror user and path to their home directory"
 		echo -e "USERNAME=\"${USERNAME}\""
 		echo -e "USERPATH=\"${USERPATH}\""
