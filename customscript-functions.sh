@@ -1,3 +1,12 @@
+function customGetRsyncSource () {
+	local RSYNCSOURCE DISTRO
+	DISTRO=$1
+	RSYNCSOURCE=$( whiptail --backtitle "Distro = ${DISTRO}" --title "Set source url to rsync from" \
+					--inputbox "Enter source rsync URL (in the form rsync://<url>, path is appended based on distro, so type accordingly :) )" \
+					${LINES} ${COLUMNS} 3>&1 1>&2 2>&3 )
+	echo "${RSYNCSOURCE}"
+}
+
 function genCustomConfig () {
 	# Make sure variables are local
 	local BASEDIR DISTRO USERNAME USERPATH
@@ -15,7 +24,7 @@ function genCustomConfig () {
 	# Build out variable assignments to match what script expects,
 	# still maintain configurability
 	# source URL for rsync
-	RSYNCURL=$( getRsyncSource "${DISTRO}" )
+	RSYNCURL=$( customGetRsyncSource "${DISTRO}" )
 	RSYNCPATH="${DISTRO}"
 	RSYNCSOURCE="${RSYNCURL}/${RSYNCPATH}"
 

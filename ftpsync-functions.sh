@@ -6,6 +6,15 @@ function installFtpsync () {
 	sudo cp -r "/home/${MIRRORUSER}/archvsync/etc" "/home/${MIRRORUSER}/."	
 }
 
+function ftpsyncGetRsyncSource () {
+	local RSYNCSOURCE DISTRO
+	DISTRO=$1
+	RSYNCSOURCE=$( whiptail --backtitle "Distro = ${DISTRO}" --title "Set source url to rsync from" \
+					--inputbox "Enter source rsync URL, without rsync://, just the domain name is sufficient" \
+					${LINES} ${COLUMNS} 3>&1 1>&2 2>&3 )
+	echo "${RSYNCSOURCE}"
+}
+
 function getArchIncExc () {
 	local ARCH_OPT DISTRO
 	DISTRO=$1
@@ -90,7 +99,7 @@ function genFtpSyncConfig () {
 	# still maintain configurability
 	MIRRORNAME="\$(hostname -f)"
 
-	RSYNC_HOST=$( getRsyncSource "${DISTRO}" )
+	RSYNC_HOST=$( ftpsyncGetRsyncSource "${DISTRO}" )
 
 	LOGDIR="${USERPATH}/log/${DISTRO}"
 
