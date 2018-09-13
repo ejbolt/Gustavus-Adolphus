@@ -28,9 +28,11 @@ So I decided to write a dialog menu script that would automate deploying the men
 --- 
 #### What this tool does NOT do, but plan for it to:
 ---
-- Install needed dependencies for whatever distro it is running on
+- Install needed dependencies for whatever distro it is running on ( such as apache, I don't plan for
+  this tool to create an rsync mirror, but all that would require is pointing your rsync server at the
+  mirror's root directory.
 - allow for advanced variable customization for ftpsync-related distros
-- support Fedora (requires I read into their mirroring tool, that's on the current todo list
+- support Fedora (requires I read into their mirroring tool, that's on the current todo list)
 - detect when running as root and change any sudo commands as appropriate
 ---
 BEFORE USING THIS TOOL YOU SHOULD LOOK INTO HOW FTPSYNC WORKS AND AT MY CUSTOM SCRIPTS  
