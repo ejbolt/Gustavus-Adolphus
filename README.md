@@ -11,11 +11,11 @@ Deployment tool that was spawned after my previous project (https://github.com/e
   use an rsync script (base script found here: https://wiki.centos.org/HowTos/CreateLocalMirror)
 
 ### Ubuntu
-  ~~use an rsync script (base script found here: https://wiki.ubuntu.com/Mirrors/Scripts)
+  ~~use an rsync script (base script found here: https://wiki.ubuntu.com/Mirrors/Scripts)~~
   
-~~After writing my previous scripts, there were a lot of similaries seen in the rsync commands between CentOS and Ubuntu, and many defaults in ftpsync that worked very well when added to my custom scripts.
+~~After writing my previous scripts, there were a lot of similaries seen in the rsync commands between CentOS and Ubuntu, and many defaults in ftpsync that worked very well when added to my custom scripts.~~
 
-~~So I decided to write a dialog menu script that would automate deploying the mentioned Linux distros.
+~~So I decided to write a dialog menu script that would automate deploying the mentioned Linux distros.~~
 
   Use ftpsync if possible, depending on mirror, it should work.  Otherwise, refer to https://wiki.ubuntu.com/Mirrors/Scripts for a good base script
 
