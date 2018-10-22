@@ -10,7 +10,7 @@ function ftpsyncGetRsyncSource () {
 	local RSYNCSOURCE DISTRO
 	DISTRO=$1
 	RSYNCSOURCE=$( whiptail --backtitle "Distro = ${DISTRO}" --title "Set source url to rsync from" \
-					--inputbox "Enter source rsync URL, without rsync://, just the domain name is sufficient" \
+					--inputbox "Enter source rsync URL, without rsync://, ftpsync uses the format <url>::<path>" \
 					${LINES} ${COLUMNS} 3>&1 1>&2 2>&3 )
 	echo "${RSYNCSOURCE}"
 }
