@@ -12,7 +12,7 @@ function main () {
 	source "${BINDIR}/customscript-functions.sh" 1>/dev/null
 
 	# list of distros script covers
-	local -r DISTROS="centos debian kali raspbian ubuntu custom"
+	local -r DISTROS="archlinux centos debian kali raspbian ubuntu custom"
 	# Options for dialog menu list
 	local OPTIONS=()
 
@@ -102,7 +102,7 @@ function main () {
 
 	for DIST in "${INST_DISTS[@]}"
 	do
-		if [[ "${DIST}" == "debian" || "${DIST}" == "kali" || "${DIST}" == "raspbian" ]]
+		if [[ "${DIST}" == "debian" || "${DIST}" == "kali" || "${DIST}" == "raspbian" || "${DIST}" == "ubuntu" ]]
 		then
 			FS_INST_DISTS+=("${DIST}")
 		elif [[ "${DIST}" == "custom" ]]
