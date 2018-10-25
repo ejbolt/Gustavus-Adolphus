@@ -44,3 +44,6 @@ afterwards, you will have directories in the mirror user's home directory named 
 You can run the scripts manually, OR place them in your crontab (ftpsync has an ftpsync-cron wrapper, you should use that).  They should run fine during the first initial sync, but it wouldn't hurt to run them manually, or set your crontab to run accordingly.
 
 All feedback is welcome.  There are bound to be issues.  I am constantly testing them on my own mirror server to find any hiccups.
+
+Notes: URLs will require editing.  Planning to split rsync url entry to the url, and the path afterwards.
+
