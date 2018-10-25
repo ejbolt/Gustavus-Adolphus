@@ -5,7 +5,7 @@ Deployment tool that was spawned after my previous project (https://github.com/e
 ## When creating Linux mirrors, some have certain rules
 ### Debian and several of its derivatives:
   use ftpsync: an official collection of scripts that allow you to mirror some or all of the Debian archive;
-    I have tested it and it also works with Kali and Raspbian, Ubuntu is hit or miss, try to use ftpsync, and if the mirror you're         trying doesn't work, it may not have been made with ftpsync.  It seems when ftpsync creates a mirror, it creates some trace files that   are needed if someone uses ftpsync to mirror YOUR mirror.  Just something to note.
+    I have tested it and it also works with Kali and Raspbian, Ubuntu is hit or miss, try to use ftpsync, and if the mirror you're         trying doesn't work, it may not have been made with ftpsync.  ftpsync creates some trace files that are needed if someone uses ftpsync to mirror YOUR mirror.  Just something to note.
     
 ### CentOS
   use an rsync script (base script found here: https://wiki.centos.org/HowTos/CreateLocalMirror)
