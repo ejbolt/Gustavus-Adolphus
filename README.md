@@ -29,7 +29,7 @@ Deployment tool that was spawned after my previous project (https://github.com/e
   mirror's root directory.
 - allow for advanced variable customization for ftpsync-related distros
 - support Fedora (requires I read into their mirroring tool, that's on the current todo list)
-- support Arch (according to a script on the wiki, my base script _should_ work but at this time it is only in testing, feel free to check for me while I'm doing my own testing :)
+- support Arch (according to a script on the wiki, my base script _should_ work but at this time it is only in testing, feel free to check for me while I'm doing my own testing :) )
 - detect when running as root and change any sudo commands as appropriate
 ---
 BEFORE USING THIS TOOL YOU SHOULD LOOK INTO HOW FTPSYNC WORKS AND AT MY CUSTOM SCRIPTS  
