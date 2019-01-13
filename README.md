@@ -11,7 +11,7 @@ Deployment tool that was spawned after my previous project (https://github.com/e
   use an rsync script (base script found here: https://wiki.centos.org/HowTos/CreateLocalMirror)
 
 ### Ubuntu
-  Use ftpsync if possible, depending on mirror, it should work.  Otherwise, refer to https://wiki.ubuntu.com/Mirrors/Scripts for a good base script
+  Use ftpsync if possible, but many Ubuntu mirrors don't sync using ftpsync, so the selection is limited.  If you can't find a good mirror that works for you, use the custom selection for ubuntu.
 
 #### What this tool does:
 ---
@@ -21,6 +21,7 @@ Deployment tool that was spawned after my previous project (https://github.com/e
 - generates configs for both my custom scripts, and for ftpsync
 - changes all affected and appropriate directories to belong to the mirror user
 - allows the user to change variables such as default mirror directory, mirror user username, and other config variables as appropriate
+- officially supports Arch Linux, CentOS, Debian, Kali, Raspbian, and Ubuntu
 --- 
 #### What this tool does NOT do, but plan for it to:
 ---
@@ -29,7 +30,6 @@ Deployment tool that was spawned after my previous project (https://github.com/e
   mirror's root directory.
 - allow for advanced variable customization for ftpsync-related distros
 - support Fedora (requires I read into their mirroring tool, that's on the current todo list)
-- support Arch (according to a script on the wiki, my base script _should_ work but at this time it is only in testing, feel free to check for me while I'm doing my own testing :) )
 - detect when running as root and change any sudo commands as appropriate
 ---
 BEFORE USING THIS TOOL YOU SHOULD LOOK INTO HOW FTPSYNC WORKS AND AT MY CUSTOM SCRIPTS  
