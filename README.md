@@ -11,7 +11,7 @@ Deployment tool that was spawned after my previous project (https://github.com/e
   use an rsync script (base script found here: https://wiki.centos.org/HowTos/CreateLocalMirror)
 
 ### Ubuntu
-  Use ftpsync if possible, but many Ubuntu mirrors don't sync using ftpsync, so the selection is limited.  If you can't find a good mirror that works for you, use the custom selection for ubuntu.
+  Use ftpsync if possible, but many Ubuntu mirrors don't sync using ftpsync, so the selection is limited.  If you can't find a good mirror that works for you, use the custom option for creating an Ubuntu mirror.  I plan to tailor the custom script for this case.
 
 #### What this tool does:
 ---
