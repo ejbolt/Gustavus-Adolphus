@@ -8,10 +8,10 @@ Deployment tool that was spawned after my previous project (https://github.com/e
     I have tested it and it also works with Kali and Raspbian, Ubuntu is hit or miss, try to use ftpsync, and if the mirror you're         trying doesn't work, it may not have been made with ftpsync.  ftpsync creates some trace files that are needed if someone uses ftpsync to mirror YOUR mirror.  Just something to note.
     
 ### CentOS
-  use an rsync script (base script found here: https://wiki.centos.org/HowTos/CreateLocalMirror)
+  Use an rsync script (base script found here: https://wiki.centos.org/HowTos/CreateLocalMirror)
 
 ### Ubuntu
-  Use ftpsync if possible, but many Ubuntu mirrors don't sync using ftpsync, so the selection is limited.  If you can't find a good mirror that works for you, use the custom option for creating an Ubuntu mirror.  I plan to tailor the custom script for this case.
+  Use ftpsync if possible, but many Ubuntu mirrors don't sync using ftpsync, so the selection is limited.  If you can't find a good mirror that works for you, use an rsync script.  In the case of this tool, use the custom option for creating an Ubuntu mirror.  I plan to tailor the custom script for this case.
 
 #### What this tool does:
 ---
