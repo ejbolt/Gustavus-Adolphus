@@ -45,5 +45,5 @@ You can run the scripts manually, OR place them in your crontab (ftpsync has an 
 
 All feedback is welcome.  There are bound to be issues.  I am constantly testing them on my own mirror server to find any hiccups.
 
-Notes: URLs will require editing.  Planning to split rsync url entry to the url, and the path afterwards.
+Notes: Read the script code to see how it wants the rsync URL.  I'd like to be able to smartly append the distro name to the URL, but since the directory path of Linux mirrors is not ubiquitous, that's a little tricky, so meh.
 
