@@ -123,8 +123,11 @@ function main () {
 		genFtpSyncConfig "${MIRRORDIR}" "${DIST}" "${MIRRORUSER}" "${USERPATH}"
 	done
 
-	sudo chown -R "${MIRRORUSER}:${MIRRORUSER}" "${USERPATH}"
-	sudo chown -R "${MIRRORUSER}:${MIRRORUSER}" "${MIRRORDIR}"
+        sudo chown -R "${MIRRORUSER}:${MIRRORUSER}" "${USERPATH}"
+        for DIST in "${INST_DISTS[@]}"
+    	do
+        	sudo chown -R "${MIRRORUSER}:${MIRRORUSER}" "${MIRRORDIR}/${DIST}"
+    	done
 
 	whiptail --backtitle "${BACKTITLE}" --textbox --title "Actions" msg.txt ${LINES} ${COLUMNS} 3>&1 1>&2 2>&3
 }
