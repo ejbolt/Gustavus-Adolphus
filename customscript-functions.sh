@@ -32,7 +32,7 @@ function genCustomConfig () {
 	LOCKFILE="\"Archive-Update-in-Progress-\${MIRRORNAME}\""
 	LOCK="\"\${BASEDIR}/\${DISTRO}\${LOCKFILE}\""
 
-	DAY="\$(date | tr -s ' ' | tr ' ' '-' | cut -d '-' -f2,3,4)"
+	DAY="\$(date | tr -s ' ' | tr ' ' '-' | cut -d '-' -f2,3,4,5)"
 	LOGFILENAME="\"\${DISTRO}-rsync-\${DAY}.log\""
 	LOGPATH="\"\${USERPATH}/log/\${DISTRO}/\${LOGFILENAME}\""
 
