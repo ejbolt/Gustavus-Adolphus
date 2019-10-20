@@ -12,7 +12,7 @@ function main () {
 	source "${BINDIR}/customscript-functions.sh" 1>/dev/null
 
 	# list of distros script covers
-	local -r DISTROS="archlinux centos debian kali raspbian ubuntu custom"
+	local -r DISTROS="archlinux centos debian freebsd kali manjaro netbsd openbsd qubes raspbian ubuntu voidlinux custom"
 	# Options for dialog menu list
 	local OPTIONS=()
 
