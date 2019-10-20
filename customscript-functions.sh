@@ -26,7 +26,7 @@ function genCustomConfig () {
 	# source URL for rsync
 	RSYNCURL=$( customGetRsyncSource "${DISTRO}" )
 	RSYNCPATH="${DISTRO}"
-	RSYNCSOURCE="${RSYNCURL}/${RSYNCPATH}"
+	RSYNCSOURCE="${RSYNCURL}"
 
 	MIRRORNAME="\$(hostname -f)"
 	LOCKFILE="\"Archive-Update-in-Progress-\${MIRRORNAME}\""
