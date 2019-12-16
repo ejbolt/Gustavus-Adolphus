@@ -1,5 +1,5 @@
 # Gustavus Adolphus
-In the early 1600s, Gustav II Adolph of Sweden reformed the administrative structure of Sweden and his military innovation allowed Sweden to become a great power for the next 70 years.  For these accomplishments, as well as those on the battlefield he's been known as Gustavus Adolphus the Great, The Golden King, and The Lion of the North.
+In the early 1600s, Gustav II Adolph of Sweden reformed the administrative structure of Sweden and his military innovation allowed Sweden to become a great power for the next 70 years.  For these accomplishments, as well as those on the battlefield he's been known as The Lion of the North.
 
 ## Linux Mirror Deployment Tool
 
