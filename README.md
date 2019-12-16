@@ -19,12 +19,12 @@ Deployment tool that was spawned after my previous project (https://github.com/e
     
 ### Fedora
   Use fedora-quick-mirror, a ZSH script that optimizes how rsync retrieves files for a Fedora mirror.  Requires some configuration, and intend to add a script that generates the config for that file.
-
+  
 ### Ubuntu
   Use ftpsync if possible, but many Ubuntu mirrors don't sync using ftpsync, so the selection is limited.  If you can't find a good mirror that works for you, use an rsync script.  In the case of this tool, use the custom option for creating an Ubuntu mirror.  I plan to tailor the custom script for this case.
   
 ### Various
-  Most \*nix distros utilize rsync and a web server and that's that.
+  Most \*nix distros utilize rsync and a web server and that's that.  These also include Free/Net/OpenBSD, as well as OpenSUSE, Qubes, Slackware, and Void Linux 
 
 #### What this tool does:
 ---
