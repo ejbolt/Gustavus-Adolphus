@@ -17,7 +17,7 @@ function main () {
 	local OPTIONS=()
 
 	# Load options
-	for d in $DISTROS
+	for d in ${DISTROS}
 	do
 		OPTIONS+=("$d" "" off)
 	done
