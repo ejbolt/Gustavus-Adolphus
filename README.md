@@ -34,7 +34,7 @@ Deployment tool that was spawned after my previous project (https://github.com/e
 - generates configs for both my custom scripts, and for ftpsync
 - changes all affected and appropriate directories to belong to the mirror user
 - allows the user to change variables such as default mirror directory, mirror user username, and other config variables as appropriate
-- officially supports Arch Linux, CentOS, Debian, Kali, Raspbian, and Ubuntu
+- officially supports Arch Linux, CentOS, Debian, FreeBSD, Kali, Linux Mint, NetBSD, OpenBSD, Qubes, Raspbian, TinyCoreLinux,  Ubuntu, and Void Linux
 --- 
 #### What this tool does NOT do, but plan for it to:
 ---
