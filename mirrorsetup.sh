@@ -76,7 +76,7 @@ function main () {
 
 	# array of selected distros to install
 	local INST_DISTS=()
-	for DIST in $CHOICES
+	for DIST in ${CHOICES}
 	do
 		if [[ "${DIST}" == "custom" ]]
 		then
