@@ -29,8 +29,6 @@ function genCustomConfig () {
 	RSYNCSOURCE="${RSYNCURL}"
 
 	MIRRORNAME="\$(hostname -f)"
-	LOCKFILE="\"\${DISTRO}Archive-Update-in-Progress-\${MIRRORNAME}\""
-	LOCK="\"\${BASEDIR}/\${LOCKFILE}\""
 
 	DAY="\$(date +\"%F-%T\" | tr -s ' ' | tr ' ' '-' | cut -d '-' -f2,3,4,5)"
 	LOGFILENAME="\"\${DISTRO}-rsync-\${DAY}.log\""
