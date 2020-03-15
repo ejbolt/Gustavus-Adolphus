@@ -83,8 +83,6 @@ function genCustomConfig () {
 		echo "# use host name in Lockfile name, credit to Debian's ftpsync tool for the idea,"
 		echo "# as they do the same thing"
 		echo -e "MIRRORNAME=${MIRRORNAME}"
-		echo -e "LOCKFILE=${LOCKFILE}"
-		echo -e "LOCK=${LOCK}"
 		echo ""
 		echo "# variables for logging, if you want the script to just print to the screen, you can set LOGPATH=\"/dev/stdout\""
 		echo -e "DAY=${DAY}"
