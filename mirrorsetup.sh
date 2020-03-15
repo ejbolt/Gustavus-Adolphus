@@ -46,7 +46,7 @@ function main () {
 
 	local FTPSYNC_NEEDED=0
 	local CUSTDIST_SET=0
-	for i in $CHOICES
+	for i in ${CHOICES}
 	do
 		if [[ "$i" == "debian" || "$i" == "kali" || "$i" == "raspbian" ]]
 		then
