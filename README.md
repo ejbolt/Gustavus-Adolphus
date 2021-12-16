@@ -1,6 +1,14 @@
 # Gustavus Adolphus
 In the early 1600s, Gustav II Adolph of Sweden reformed the administrative structure of Sweden and his military innovation allowed Sweden to become a great power for the next 70 years.  For these accomplishments, as well as those on the battlefield, he's been called The Lion of the North.
 
+## Dependencies
+
+```
+apt install xterm
+yum install xterm
+```
+
+
 ## Linux Mirror Deployment Tool
 
 Deployment tool that was spawned after my previous project (https://github.com/ejbolt/LinuxMirrorScripts)
