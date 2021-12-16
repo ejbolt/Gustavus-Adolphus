@@ -48,7 +48,7 @@ function main () {
 	local CUSTDIST_SET=0
 	for i in ${CHOICES}
 	do
-		if [[ "$i" == "debian" || "$i" == "kali" || "$i" == "raspbian" ]]
+		if [[ "$i" == "debian" || "$i" == "kali" || "$i" == "raspbian" || "$i" == "ubuntu" ]]
 		then
 			FTPSYNC_NEEDED=1
 		elif [[ "$i" == "custom" ]]
