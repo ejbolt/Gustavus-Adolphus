@@ -4,8 +4,7 @@ In the early 1600s, Gustav II Adolph of Sweden reformed the administrative struc
 ## Dependencies
 
 ```
-apt install xterm
-yum install xterm
+git xterm
 ```
 
 
